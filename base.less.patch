@@ -1,0 +1,41 @@
+--- base.less	2020-08-17 16:14:11.000000000 +0200
++++ base.less.SB	2020-06-24 18:40:51.430513618 +0200
+@@ -68,9 +68,9 @@
+ @menu-flyout-color: @text-color;
+ 
+ // Font families
+-@font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+-@font-family-fixed: "Liberation Mono", "Lucida Console", Courier, monospace;
+-@font-family-wide: Tahoma, Verdana, sans-serif;
++@font-family: "Liberation Sans Narrow", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
++@font-family-fixed: "Liberation Sans Narrow", "Liberation Mono", "Lucida Console", Courier, monospace;
++@font-family-wide: "Liberation Sans Narrow", Tahoma, Verdana, sans-serif;
+ 
+ // Font sizes
+ @font-size: 0.750em; // 12px
+@@ -80,12 +80,12 @@
+ @font-weight-bold: 600;
+ 
+ // Set line-height w/o unit so that the line-height is dynamically calculated as font-size * line-height
+-@line-height: 1.5;
++@line-height: 1.0;
+ 
+-@table-column-padding: 0.333em; // 4px
++@table-column-padding: 0.2em; // 4px
+ 
+-@vertical-padding: 0.5em; // 6px
+-@horizontal-padding: 1em; // 12px
++@vertical-padding: 0.2em; // 6px
++@horizontal-padding: 0.2em; // 12px
+ 
+ // Make padding not affect the final computed width of an element
+ html {
+@@ -191,7 +191,7 @@
+     content: "";
+     display: block;
+ 
+-    background: @body-bg-color url(../img/icinga-loader.gif) no-repeat center center;
++    background: @body-bg-color url(/img/icinga-loader.gif) no-repeat center center;
+     background-size: 4em 4em;
+ 
+     opacity: 0;

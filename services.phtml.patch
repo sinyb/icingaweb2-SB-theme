@@ -1,0 +1,31 @@
+--- services.phtml	2020-08-17 16:14:11.000000000 +0200
++++ services.phtml.sb	2020-06-24 18:25:08.080862206 +0200
+@@ -48,9 +48,9 @@
+                     <?= $this->icon('clock', sprintf($this->translate('Overdue %s'), DateFormatter::timeSince($service->service_next_update))) ?>
+                 <?php endif ?>
+                     <?= Service::getStateText($service->service_state, true) ?>
+-                </div>
++                </>
+             <?php if ((int) $service->service_state !== 99): ?>
+-                <div class="state-meta">
++                <class="state-meta">
+                     <?= $this->timeSince($service->service_last_state_change, $this->compact) ?>
+                 <?php if ((int) $service->service_state > 0 && (int) $service->service_state_type === 0): ?>
+                     <div><?= $this->translate('Soft', 'Soft state') ?> <?= $service->service_attempt ?></div>
+@@ -109,6 +109,8 @@
+                       );
+                   }
+                   ?>
++                <class="overview-plugin-output"><?= $this->pluginOutput($this->ellipsis($service->service_output, 10000), true, $service->service_check_command) ?></>
++
+                   </span>
+                   <span class="state-icons"><?= $this->serviceFlags($service) ?></span>
+                 </div>
+@@ -116,7 +118,6 @@
+                     <div class="overview-performance-data">
+                         <?= $this->perfdata($service->service_perfdata, true, 5) ?>
+                     </div>
+-                    <p class="overview-plugin-output"><?= $this->pluginOutput($this->ellipsis($service->service_output, 10000), true, $service->service_check_command) ?></p>
+                 </div>
+             </td>
+         <?php foreach($this->addColumns as $col): ?>

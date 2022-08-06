@@ -1,0 +1,31 @@
+--- hosts.phtml	2020-08-17 16:14:11.000000000 +0200
++++ hosts.phtml.sb	2020-06-24 18:22:17.365988066 +0200
+@@ -35,9 +35,9 @@
+                     <?= $this->icon('clock', sprintf($this->translate('Overdue %s'), DateFormatter::timeSince($host->host_next_update))) ?>
+                 <?php endif ?>
+                     <?= Host::getStateText($host->host_state, true) ?>
+-                </div>
++                </>
+                 <?php if ((int) $host->host_state !== 99): ?>
+-                    <div class="state-meta">
++                    <class="state-meta">
+                         <?= $this->timeSince($host->host_last_state_change, $this->compact) ?>
+                     <?php if ((int) $host->host_state > 0 && (int) $host->host_state_type === 0): ?>
+                         <div><?= $this->translate('Soft', 'Soft state') ?> <?= $host->host_attempt ?></div>
+@@ -60,6 +60,8 @@
+                             'class' => 'rowaction'
+                         )
+                     ) ?>
++                <class="overview-plugin-output"><?= $this->pluginOutput($this->ellipsis($host->host_output, 10000), true, $host->host_check_command) ?></>
++
+                 <?php if (isset($summary[$host->host_name])): ?>
+                     <span class="host-services-incidents"> &#40;<?= $this->qlink(
+                           sprintf(
+@@ -89,7 +91,6 @@
+                 <?php endif ?>
+                     <span class="state-icons"><?= $this->hostFlags($host) ?></span>
+                 </div>
+-                <p class="overview-plugin-output"><?= $this->pluginOutput($this->ellipsis($host->host_output, 10000), true, $host->host_check_command) ?></p>
+             </td>
+         <?php foreach($this->addColumns as $col): ?>
+             <td><?= $this->escape($host->$col) ?></td>
